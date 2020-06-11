@@ -1,0 +1,9 @@
+<div class='card-container {{pokemonTypes[0].type.name}}'>
+    <div class='box-image'>
+        <img [src]='pokeSprite' width='90' height='90' [title]='pokeName' [alt]='pokeName' />
+    </div>
+    <h3>{{pokeName}}</h3>
+    <div class='type-container'>
+        <span *ngFor='let object of pokemonTypes' [class]='object.type.name'>{{object.type.name}}</span>
+    </div>
+</div>

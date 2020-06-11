@@ -1,0 +1,33 @@
+<h1 style='text-align: center;'>
+    {{ pokemonTeam.length !== 6 ? 'Monte seu time!' : 'Time completo!'}}
+</h1>
+
+<div *ngIf='pokemonTeam.length' class='poke-team'>
+    <div *ngFor='let pokemon of pokemonTeam' class='poke-team-container {{pokemon.types[0].type.name}}' title='Remover pokemon do seu time' (click)='removePoke(pokemon.id)'>
+        <app-card [pokeName]='pokemon.name' [pokeSprite]='pokemon.sprites.front_default' [pokeTypes]='pokemon.types | json'></app-card>
+    </div>
+    <div class='team-result' *ngIf='pokemonTeam.length == 6'>
+        <button (click)='!showTeamResult ? buildForceTeam() : resetAll()'>{{!showTeamResult ? 'Calcular resistencia' : 'Resetar'}}</button>
+
+        <div class='result' *ngIf='showTeamResult'>
+            <div class='container-result'>
+                <h3>Fraquezas</h3>
+                <div *ngFor='let attribute of viewTeamWeakness' [class]='attribute.name'>
+                    <span>{{attribute.name}} ({{attribute.count}})</span>
+                </div>
+            </div>
+            <div class='container-result'>
+                <h3>Imunidade</h3>
+                <div *ngFor='let attribute of viewTeamImmunity' [class]='attribute.name'>
+                    <span>{{attribute.name}} ({{attribute.count}})</span>
+                </div>
+            </div>
+            <div class='container-result'>
+                <h3>Resistencia</h3>
+                <div *ngFor='let attribute of viewTeamResistence' [class]='attribute.name'>
+                    <span>{{attribute.name}} ({{attribute.count}})</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

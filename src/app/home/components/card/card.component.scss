@@ -1,0 +1,32 @@
+div.card-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 100%;
+
+    > div.box-image {
+        width: 100%;
+    }
+
+    > h3 {
+        width: 100%;
+        text-transform: capitalize;
+    }
+
+    > div.type-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        > span {
+            width: 30%;
+            padding: 12px 5px;
+            border-radius: 20px;
+            color: #FFFFFF;
+            margin: 10px 5px;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+        }
+    }
+}
